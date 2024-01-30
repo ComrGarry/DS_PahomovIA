@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+        body {
+                background-image: url("{{url_for('static', filename='2background.jpg')}}");
+                color: white
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Прогназирование для соотношения "матрица-наполнитель"</title>
+</head>
+<body>
+    <h2 style="color: white">Прогназирование для "соотношения матрица-наполнитель"</h2>
+
+    {% if error %}
+        <pre style="color:DarkRed">{{ error }}</pre>
+    {% endif %}
+<table border="1">
+
+
+
+    <form action="" method="post">
+    <p>
+	    <tr><td><label style="color: white" for="var2">Плотность, кг/м3 (1700...2300)</label>
+		</td><td>
+	    <input type="text" name="var2" value="{{ params.get('var2') }}"></td></tr>
+	</p>
+
+    <p>
+	    <tr><td><label style="color: white" for="var3">Модуль упругости, ГПа (2...2000)</label>
+		</td><td>
+	    <input type="text" name="var3" value="{{ params.get('var3') }}"></td></tr>
+	</p>
+
+    <p>
+	     <tr><td><label style="color: white" for="var4">Количество отвердителя, м.% (17...200)</label>
+		 </td><td>
+	    <input type="text" name="var4" value="{{ params.get('var4') }}"></td></tr>
+	</p>
+
+    <p>
+	     <tr><td><label style="color: white" for="var5">Содержание эпоксидных групп,%_2 (14...34)</label>
+		 </td><td>
+	    <input type="text" name="var5" value="{{ params.get('var5') }}"></td></tr>
+	</p>
+
+    <p>
+	    <tr><td><label style="color: white" for="var6">Температура вспышки, С_2 (100...414)</label>
+	     </td><td>
+	    <input type="text" name="var6" value="{{ params.get('var6') }}"></td></tr>
+	</p>
+
+    <p>
+	    <tr><td><label style="color: white" for="var7">Поверхностная плотность, г/м2 (0.6...1400)</label>
+		</td><td>
+	    <input type="text" name="var7" value="{{ params.get('var7') }}"></td></tr>
+	</p>
+
+    <p>
+	    <tr><td><label style="color: white" for="var8">Модуль упругости при растяжении, ГПа (64...83)</label>
+		</td><td>
+	    <input type="text" name="var8" value="{{ params.get('var8') }}"></td></tr>
+	</p>
+
+    <p>
+	    <tr><td><label style="color: white" for="var9">Прочность при растяжении, МПа (1036...3849)</label>
+		</td><td>
+	    <input type="text" name="var9" value="{{ params.get('var9') }}"></td></tr>
+	</p>
+
+    <p>
+	    <tr><td><label style="color: white" for="var10">Потребление смолы, г/м2 (33...414)</label>
+		</td><td>
+	    <input type="text" name="var10" value="{{ params.get('var10') }}"></td></tr>
+	</p>
+
+    <p>
+	    <tr><td><label style="color: white" for="var11">Угол нашивки, град (0...90)</label>
+		</td><td>
+	    <input type="text" name="var11" value="{{ params.get('var11') }}"></td></tr>
+	</p>
+
+    <p>
+	    <tr><td><label style="color: white" for="var12">Шаг нашивки (0...15)</label>
+		</td><td>
+	    <input type="text" name="var12" value="{{ params.get('var12') }}"></td></tr>
+	</p>
+
+    <p>
+	    <tr><td><label style="color: white" for="var13">Плотность нашивки (0...104)</label>
+		</td><td>
+	    <input type="text" name="var13" value="{{ params.get('var13') }}"></td></tr>
+	</p>
+</table>
+	<p>
+	    <input type="submit">
+	</p>
+    </form>
+
+    {% if var1 %}
+		<p style="color: white">Входные переменные:</p>
+		{{ inputs|safe }}
+
+		<p>Результат модели:</p>
+		<table border="1" class="dataframe">
+		  <thead>
+			<tr>
+			  <th>Соотношение матрица-наполнитель</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <td>{{ var1 }}</td>
+			</tr>
+		  </tbody>
+		</table>
+
+    {% endif %}
+
+</body>
+</html>
